@@ -1,1 +1,2 @@
-import Question, Option
+from Question import Question
+from Option import Option

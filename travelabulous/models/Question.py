@@ -14,14 +14,4 @@ class Question(db.Document):
     return unicode(self).encode('utf-8')
 
   def __repr__(self):
-    return "Question: " + self.text + "\nOptions: " + ', '.join(str(x) for x in self.options)
-
-
-class Option(db.Document):
-  text = db.StringField(required = True)
-  isPictureOption = db.BoolField(required = True)
-
-  def __unicode__(self):
     return self.text
-  def __str__(self):
-        return unicode(self).encode('utf-8')

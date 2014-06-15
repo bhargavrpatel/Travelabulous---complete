@@ -6,9 +6,8 @@ import Question
 
 class Option(db.Document):
   text = db.StringField(required = True)
-  isPictureOption = db.BoolField(required = True)
+  isPicture = db.BoolField(required = True)
+  isLeft = db.BoolField(required = False)
 
-  def __unicode__(self):
+  def __repr__(self):
     return self.text
-  def __str__(self):
-        return unicode(self).encode('utf-8')

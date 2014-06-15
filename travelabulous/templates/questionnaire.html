@@ -6,7 +6,16 @@
   <body>
     <h1>Questions Page</h1>
     {% for question in questions %}
-      <p>{{ question }}'s options are: {{ question.options }}</p>
+      <div class = "questions">
+        {{ question }}<br/>
+        {% for option in question.options %}
+          {% if option.isLeft %}
+            <div class = "imageOption leftOption"><img style="float: left;" src="{{option.text}}" height = 45% width = 50%></img></div>
+          {% else %}
+            <div class = "imageOption rightOption"><img style="float: right;" src="{{option.text}}" height = 45% width = 50%></img></div>
+          {% endif %}
+        {% endfor %}
+      </div>
     {% endfor %}
   </body>
 </html>
