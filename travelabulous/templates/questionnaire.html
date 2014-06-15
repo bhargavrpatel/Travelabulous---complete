@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Questions Pages</title>
+  </head>
+  <body>
+    <h1>Questions Page</h1>
+    {% for question in questions %}
+      <p>{{ question }}'s options are: {{ question.options }}</p>
+    {% endfor %}
+  </body>
+</html>
