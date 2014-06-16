@@ -5,6 +5,7 @@ from flask.ext.mongoalchemy import *
 import Option
 
 class Question(db.Document):
+  id = db.IntField(required = True)
   text = db.StringField(required = True)
   options = db.ListField(db.DocumentField('Option'), required = False)
 

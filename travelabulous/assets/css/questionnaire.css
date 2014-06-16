@@ -1,3 +1,41 @@
 #footer{
 	color: red;
 }
+
+#leftOption{
+	float: left;
+}
+
+#rightOption{
+	float: right;
+}
+
+.questionButtons{
+	height: 40px;
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	vertical-align:middle;
+	margin-top: 400px;
+}
+
+.questionButtons:hover {
+	color: orange;
+	background-color: red;
+}
+/* #questions > div{
+  -webkit-transition:0.5s;
+  transition:0.5s;ds
+}
+
+fade ALL out on parent hover
+#questions:hover > div{
+	opacity:0.1;
+	background-color: red;
+}
+
+fade ONE in on hover
+#questions > div:hover{
+   opacity:1;
+}
+ */

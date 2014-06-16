@@ -3,44 +3,32 @@
   <head>
     <title>Questions Pages</title>
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/questionnaire.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/questionnaire.js') }}"></script>
   </head>
   <body>
-
-
     <center><h1>Trippo Questionnaire</h1></center>
+
     {% for question in questions %}
-      <div class = "questions">
-        <center>{{ question }}</center><br/>
-        {% for option in question.options %}
-          {% if option.isLeft %}
-            <div onclick = "storeAnswer(true)" class = "imageOption leftOption"><img style="float: left;" src="{{option.text}}" width = 50%></img></div>
-          {% else %}
-            <div onclick = "storeAnswer(false)" class = "imageOption rightOption"><img style="float: right;" src="{{option.text}}" width = 50%></img></div>
-          {% endif %}
-        {% endfor %}
-      </div>
-      <div id="footer">
-            <center><h3>Your progress</h3></center>
-      </div>
+      {% for option in question.options %}
+        {% if option.isLeft %}
+          <script>fillOptions("{{ option.text }}", true);</script>
+        {% else %}
+          <script>fillOptions("{{ option.text }}", false);</script>
+        {% endif %}
+
+      {% endfor %}
+      <script>fillQuestions("{{ question.text }}")</script>
     {% endfor %}
 
-    <script>
-      var answersArray = [];
-      var isLeft = true;
-
-      function storeAnswer(isLeft) {
-        if(isLeft) {
-          answersArray.push(1);
-        } else {
-          answersArray.push(2);
-        }
-        nextQuestion();
-      }
-
-      function nextQuestion() {
-
-      }
+    <div id = "question">
+      <div id="questionText">questiontext</div>
+      <div id="questionOption1">question option 1</div>
+      <div id="questionOption2">question option 2</div>
+    <div>
+    <script type = "text/javascript">
+      document.getElementById("questionText").innerHTML = "<center>" + questionArray[0][0] + "</center>";
+      document.getElementById("questionOption1").innerHTML = "<img id = 'leftOption' src = " + questionArray[0][1][0] + " width = 50%></img>";
+      document.getElementById("questionOption2").innerHTML = "<img id = 'rightOption' src = " + questionArray[0][1][1] + " width = 50%></img>";
     </script>
-
   </body>
 </html>
