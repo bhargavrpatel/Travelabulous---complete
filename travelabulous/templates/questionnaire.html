@@ -2,20 +2,45 @@
 <html>
   <head>
     <title>Questions Pages</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/questionnaire.css') }}">
   </head>
   <body>
-    <h1>Questions Page</h1>
+
+
+    <center><h1>Trippo Questionnaire</h1></center>
     {% for question in questions %}
       <div class = "questions">
-        {{ question }}<br/>
+        <center>{{ question }}</center><br/>
         {% for option in question.options %}
           {% if option.isLeft %}
-            <div class = "imageOption leftOption"><img style="float: left;" src="{{option.text}}" height = 45% width = 50%></img></div>
+            <div onclick = "storeAnswer(true)" class = "imageOption leftOption"><img style="float: left;" src="{{option.text}}" width = 50%></img></div>
           {% else %}
-            <div class = "imageOption rightOption"><img style="float: right;" src="{{option.text}}" height = 45% width = 50%></img></div>
+            <div onclick = "storeAnswer(false)" class = "imageOption rightOption"><img style="float: right;" src="{{option.text}}" width = 50%></img></div>
           {% endif %}
         {% endfor %}
       </div>
+      <div id="footer">
+            <center><h3>Your progress</h3></center>
+      </div>
     {% endfor %}
+
+    <script>
+      var answersArray = [];
+      var isLeft = true;
+
+      function storeAnswer(isLeft) {
+        if(isLeft) {
+          answersArray.push(1);
+        } else {
+          answersArray.push(2);
+        }
+        nextQuestion();
+      }
+
+      function nextQuestion() {
+
+      }
+    </script>
+
   </body>
 </html>

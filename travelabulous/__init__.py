@@ -5,9 +5,8 @@ from flask.ext.mongoalchemy import MongoAlchemy
 from mongoalchemy.session import Session
 
 # Setup "app" as per Flask.
-app = Flask(__name__)
+app = Flask(__name__, template_folder = "templates", static_folder = "assets")
 app.config['MONGOALCHEMY_DATABASE'] = 'travelabulous'
-app.template_folder = "templates"
 
 # Database hook up and session creation
 db = MongoAlchemy(app)
