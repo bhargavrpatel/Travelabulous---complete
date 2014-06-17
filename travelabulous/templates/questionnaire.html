@@ -30,7 +30,7 @@
     <script type = "text/javascript">
       function rendering() {
         if (doneQuestionnaire == false) {
-          document.getElementById("questionText").innerHTML = "<center>" + questionArray[currentIndex][0] + "</center>";
+          document.getElementById("questionText").innerHTML = "<center>" + questionArray[currentIndex][0] + "? Click your preferred image or the skip button</center>";
           document.getElementById("questionOption1").innerHTML = "<img id = 'leftOption' src = " + questionArray[currentIndex][1][0] + " height = 50% width = 50%></img>";
           document.getElementById("questionOption2").innerHTML = "<img id = 'rightOption' src = " + questionArray[currentIndex][1][1] + " height = 50% width = 50%></img>";
         } else {

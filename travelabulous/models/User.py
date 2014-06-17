@@ -7,7 +7,7 @@ import Question
 
 class User(db.Document):
   username = db.StringField(required = True)
-  options = db.ListField(db.DocumentField('Option'), required = False)
+  options = db.ListField(db.IntField(), required = False)
 
   def __unicode__(self):
     return self.username

@@ -1,3 +1,5 @@
+user = User(username = "Guest", options = [])
+user.save()
 question1 = Question(
   id = 1,
   text = "Do you like Museums or Beaches",
