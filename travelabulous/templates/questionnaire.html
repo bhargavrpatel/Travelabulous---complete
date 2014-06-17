@@ -4,6 +4,7 @@
     <title>Questions Pages</title>
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/questionnaire.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='js/questionnaire.js') }}"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
   <body>
     <center><h1>Questionnaire</h1></center>
@@ -33,10 +34,16 @@
           document.getElementById("questionOption1").innerHTML = "<img id = 'leftOption' src = " + questionArray[currentIndex][1][0] + " height = 50% width = 50%></img>";
           document.getElementById("questionOption2").innerHTML = "<img id = 'rightOption' src = " + questionArray[currentIndex][1][1] + " height = 50% width = 50%></img>";
         } else {
-          document.getElementById("question").innerHTML = "<center><h3>Done survey!</h3><br/>"+ answersArray + "</center>";
+          document.getElementById("question").innerHTML = "<center><h3>Done survey!</h3><br/>"+ answersArray + "<button>Results</button></center>";
+          $( "button" ).click(function() {
+              $.ajax({type: 'POST', url: '/questionnaire', data: JSON.stringify({answersArray: answersArray}), success: function(data) {console.log(data)}, contentType: 'application/json'});
+              alert("ajax POST request sent back to 'controller'");
+          });
         }
       }
       rendering();
     </script>
+
+
   </body>
 </html>

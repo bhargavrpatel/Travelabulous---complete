@@ -15,3 +15,4 @@ session = Session.connect('travelabulous')
 
 from travelabulous.models import *
 from travelabulous.controllers import *
+from test import *
