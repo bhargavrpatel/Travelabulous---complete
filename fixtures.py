@@ -1,3 +1,5 @@
+from travelabulous import *
+from travelabulous.models import *
 user = User(username = "Guest", options = [])
 user.save()
 question1 = Question(
