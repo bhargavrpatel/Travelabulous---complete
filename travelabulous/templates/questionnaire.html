@@ -6,14 +6,14 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/questionnaire.js') }}"></script>
   </head>
   <body>
-    <center><h1>Trippo Questionnaire</h1></center>
+    <center><h1>Questionnaire</h1></center>
 
     {% for question in questions %}
       {% for option in question.options %}
         {% if option.isLeft %}
-          <script>fillOptions("{{ option.text }}", true);</script>
+          <script>fillOptions("{{ option.text }}");</script>
         {% else %}
-          <script>fillOptions("{{ option.text }}", false);</script>
+          <script>fillOptions("{{ option.text }}");</script>
         {% endif %}
 
       {% endfor %}
@@ -22,13 +22,21 @@
 
     <div id = "question">
       <div id="questionText">questiontext</div>
-      <div onClick = "collectAnswers(true)" id="questionOption1">question option 1</div>
-      <div onClick = "collectAnswers(false)" id="questionOption2">question option 2</div>
+      <div onClick = "collectAnswers(1)" id="questionOption1">question option 1</div>
+      <div onClick = "collectAnswers(2)" id="questionOption2">question option 2</div>
+      <center><button onClick = "collectAnswers(0)">Skip</button></center>
     <div>
     <script type = "text/javascript">
-      document.getElementById("questionText").innerHTML = "<center>" + questionArray[currentIndex][0] + "</center>";
-      document.getElementById("questionOption1").innerHTML = "<img id = 'leftOption' src = " + questionArray[currentIndex][1][0] + " width = 50%></img>";
-      document.getElementById("questionOption2").innerHTML = "<img id = 'rightOption' src = " + questionArray[currentIndex][1][1] + " width = 50%></img>";
+      function rendering() {
+        if (doneQuestionnaire == false) {
+          document.getElementById("questionText").innerHTML = "<center>" + questionArray[currentIndex][0] + "</center>";
+          document.getElementById("questionOption1").innerHTML = "<img id = 'leftOption' src = " + questionArray[currentIndex][1][0] + " height = 50% width = 50%></img>";
+          document.getElementById("questionOption2").innerHTML = "<img id = 'rightOption' src = " + questionArray[currentIndex][1][1] + " height = 50% width = 50%></img>";
+        } else {
+          document.getElementById("question").innerHTML = "<center><h3>Done survey!</h3><br/>"+ answersArray + "</center>";
+        }
+      }
+      rendering();
     </script>
   </body>
 </html>
