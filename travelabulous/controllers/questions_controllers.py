@@ -4,8 +4,8 @@ from flask.ext.mongoalchemy import *
 from travelabulous import *
 
 
-# @app.route('/questionnaire')
-# def questionsMethod():
-#   questions = session.query(Question)
-#   # return render_template('hello.html')
-#   return render_template('questionnaire.html', questions=questions)
+@app.route('/questionnaire')
+def questionsMethod():
+  questions = session.query(Question)
+  # return render_template('hello.html')
+  return render_template('questionnaire.html', questions=questions)

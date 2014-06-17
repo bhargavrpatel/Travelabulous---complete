@@ -13,9 +13,3 @@ def default():
 @app.route('/hello/<name>')
 def hello(name = None):
   return render_template('hello.html', name=name)
-
-@app.route('/questionnaire')
-def questionsMethod():
-  questions = session.query(Question)
-  # return render_template('hello.html')
-  return render_template('questionnaire.html', questions=questions)
