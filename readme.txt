@@ -8,7 +8,7 @@ Iteration 4 Folder (contains screenshots and Document): https://drive.google.com
 
 ============================================
 
-Softwares:
+Setup and running:
 0) Install git
 1) Install Mongo
 2) Install python
